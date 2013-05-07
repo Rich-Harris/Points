@@ -18,7 +18,7 @@ The idea is to abstract away the differences between mouse and touch (and pen) e
 Usage
 -----
 
-Include `Points.js` somewhere on your page. That's it.
+Include `Points.js` somewhere on your page. Add a CSS `touch-action` property of `none` to elements you want to receive pointer events (not actually necessary &ndash; see the section on `touch-action` below &ndash; but recommended). That's it.
 
 
 What's wrong with the existing polyfills?
@@ -61,7 +61,7 @@ In practice, however, the impact is negligible.
 The touch-action CSS property
 -----------------------------
 
-**tl:dr;** - *touch-action doesn't work, use `event.preventDefault()` alongside `touch-action: none` for the time being*
+**tl:dr;** - *`touch-action` doesn't work, use `event.preventDefault()` alongside `touch-action: none` for the time being*
 
 As well as the new events, the [spec][8] introduces `touch-action`, a CSS property which can have a value of `auto` (default), `none`, `pan-x` or `pan-y`. The idea, according to Microsoft's Jacob Rossi (see [this W3Conf video][10] around the 12:50 mark) is to eliminate the need for `event.preventDefault()`, which necessarily introduces lag between the action (dragging a finger) and the behaviour (panning the document) because the browser has to wait to see if any event handlers prevented the default behaviour.
 
