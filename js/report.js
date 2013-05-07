@@ -10,7 +10,7 @@ window.addEventListener( 'load', function () {
 	browser = parsed.browser.name + ' ' + parsed.browser.major + ' on ';
 
 	if ( parsed.device.model ) {
-		browser += parsed.device.model + ' ' + parsed.device.type;
+		browser += parsed.device.model;
 	} else {
 		browser += parsed.os.name + ' ' + parsed.os.version;
 	}
