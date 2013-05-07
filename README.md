@@ -18,7 +18,9 @@ The idea is to abstract away the differences between mouse and touch (and pen) e
 Usage
 -----
 
-Include `Points.js` somewhere on your page. Add a CSS `touch-action` property of `none` to elements you want to receive pointer events (not actually necessary &ndash; see the section on `touch-action` below &ndash; but recommended). That's it.
+* Include `Points.js` somewhere on your page
+* Add a CSS `touch-action` property of `none` to elements you want to receive pointer events (not actually necessary &ndash; see the section on `touch-action` below &ndash; but recommended)
+* That's it.
 
 
 What's wrong with the existing polyfills?
