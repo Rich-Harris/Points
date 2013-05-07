@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+	<meta charset='utf-8'>
+	<title>Points.js demo</title>
+
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+
+	<!-- CSS -->
+	<link rel='stylesheet' href='css/main.css'>
+	<link rel='stylesheet' href='css/overlay.css'>
+	<link rel='stylesheet' href='css/menu.css'>
+</head>
+
+<body>
+
+	<div id='container'></div>
+
+	<div id='overlay'>
+		<a id='toggle-overlay'></a>
+
+		<div class='content'>
+			<h1>Points.js <small>&ndash; a Pointer Events polyfill</small></h1>
+		
+			<p>The W3C <a href='http://www.w3.org/TR/pointerevents/'>Pointer Events specification</a> makes it easy to create apps that work consistently across mouse, touch and pen interfaces. Points.js is a polyfill that allows you to use pointer events in your apps, such as this multi-touch finger painting app, right now.</p>
+
+			<p><a href='https://github.com/Rich-Harris/Points'>Visit GitHub to download Points.js and read the docs.</a></p>
+
+			<p>Works in all modern browsers that it's been tested in. You are using <span id='browser-description'>an unknown browser</span>. Let me know if it works or not (i.e. whether you can paint on the canvas) via Twitter: <a id='it-works' href='https://twitter.com/intent/tweet?text=%40rich_harris%20Points.js%20works%20for%20me%20in%20%5Bbrowser%2FOS%20details%20here%5D'>it works</a> / <a id='it-doesnt-work' href="https://twitter.com/intent/tweet?text=%40rich_harris%20Points.js%20doesn't%20work%20for%20me%20in%20%5Bbrowser%2FOS%20details%20here%5D">it doesn't work</a>.</p>
+		</div>
+	</div>
+
+	<div class='menu'>
+		<div id='palette' class='palette'>
+			<div id='random' data-color='random' class='palette-option selected'>?</div>
+		</div>
+		<div id='undo' class='undo'>Undo</div>
+	</div>
+
+	<!-- JS -->
+	<script src='js/lib/Points.js'></script>
+
+	<script src='js/lib/ua-parser.min.js'></script>
+	<script src='js/report.js'></script>
+
+	<script src='js/PaintBoard.js'></script>
+	<script src='js/colors.js'></script>
+	<script src='js/main.js'></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+#overlay {
+  position: relative;
+  background-color: rgba(255,255,255,0.8);
+  padding: 1em;
+  z-index: 2;
+  border-radius: 0.2em;
+  border: 1px solid #333;
+  max-height: 100%;
+  overflow-y: scroll;
+  display: inline-block;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#toggle-overlay {
+  float: left;
+  background-color: #666;
+  color: white;
+  border-radius: 0.2em;
+  display: block;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  margin: 0 1em 0.3em 0;
+}
+
+#toggle-overlay:after {
+  content: 'hide';
+}
+
+.collapsed #toggle-overlay {
+  margin: 0;
+}
+
+.collapsed #toggle-overlay:after {
+  content: 'show';
+}
+
+#overlay.collapsed .content {
+  display: none;
+}

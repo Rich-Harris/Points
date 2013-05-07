@@ -1,0 +1,70 @@
+.menu {
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	background-color: rgba(255,255,255,0.7);
+	padding: 0.5em 8em 0.5em 0.5em;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.palette {
+	width: 100%;
+	height: 100%;
+}
+
+.palette-option {
+	float: left;
+	width: 10%;
+	max-width: 3em;
+	height: 3em;
+	text-align: center;
+	padding: 1em 0;
+	border: 1px solid rgba(0,0,0,0.4);
+	opacity: 0.8;
+	cursor: pointer;
+
+	border-radius: 0.2em;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.palette-option.selected {
+	opacity: 1;
+	border: 1px solid rgba(0,0,0,0.7);
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+
+.undo {
+	position: absolute;
+	right: 0.5em;
+	bottom: 0.5em;
+	height: 3em;
+	background-color: #eee;
+	text-align: center;
+	padding: 1em;
+	border-radius: 0.2em;
+	cursor: pointer;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.undo span {
+	font-size: 1em;
+}
