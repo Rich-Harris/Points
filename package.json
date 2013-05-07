@@ -1,0 +1,20 @@
+{
+	"name": "points",
+	"description": "Another Pointer Events polyfill",
+	"author": "Rich Harris",
+	"version": "0.1.0",
+	"main": "Points.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Rich-Harris/Points.git"
+	},
+	"homepage": "http://rich-harris.github.io/Points",
+	"license": "MIT",
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-uglify": "~0.2.0",
+		"grunt-contrib-jshint": "~0.4.3",
+		"grunt-contrib-copy": "~0.4.1",
+		"grunt-contrib-concat": "~0.3.0"
+	}
+}
