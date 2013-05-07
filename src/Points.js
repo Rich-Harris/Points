@@ -23,7 +23,7 @@
 		return;
 	}
 
-	pointerEventProperties = 'screenX screenY clientX clientY ctrlKey shiftKey altKey metaKey relatedTarget detail button buttons pointerId pointerType width height pressure tiltX tiltY isPrimary preventDefault'.split( ' ' );
+	pointerEventProperties = 'screenX screenY clientX clientY ctrlKey shiftKey altKey metaKey relatedTarget detail button buttons pointerId pointerType width height pressure tiltX tiltY isPrimary'.split( ' ' );
 
 	// Can we create events using the MouseEvent constructor? If so, gravy
 	try {
@@ -39,6 +39,8 @@
 			createUIEvent = function ( type, bubbles ) {
 				var pointerEvent = document.createEvent( 'UIEvents' );
 				pointerEvent.initUIEvent( type, bubbles, true, window );
+
+				return pointerEvent;
 			};
 		}
 	}
@@ -48,7 +50,7 @@
 	}
 
 	createEvent = function ( type, originalEvent, params, noBubble ) {
-		var pointerEvent;
+		var pointerEvent, i;
 
 		pointerEvent = createUIEvent( type, !noBubble );
 
