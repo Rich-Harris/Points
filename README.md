@@ -93,8 +93,13 @@ Faced with imperfect solutions, I present... no solution. If you want to prevent
 Questions for the W3C Pointer Events Working Group!
 ---------------------------------------------------
 
+*Update: Responses from [Rick Byers](https://github.com/RByers), who works on the Chrome team and is part of the working group, below*
+
 * Can `touch-action: auto` override a `touch-action: none` property applied to an ancestor? Should pointer events fire *at all* in a `touch-action: pan-x` situation, or should they only not fire if the user is in fact panning horizontally?
+    * *touch-action isn't inherited, so it's not necessary.  A child automatically gets touch-action: auto behavior for itself.*
+    * *Pointer events should always fire up until the point a browser action starts (at which point you should get a pointercancel event.  So for pan-x, I'd expect to see pointerdown when the finger touches, some number of pointermove events, then if the user moves far enough in the x direction to trigger a pan, a pointer-cancel.  Instead if the user moves in another direction I'd get all pointer events (and no panning).*
 * It's not at all clear how you're supposed to listen to button changes. The [spec][9] says 'Pointer Events do not fire overlapping `pointerdown` and `pointerup` events for chorded button presses ... Instead, chorded button presses can be detected by inspecting changes to the `button` and `buttons` properties'. Inspect how?
+    * *The spec says that pointermove must be fired when the button state changes, so that's where you can detect a change.*
 
 
 Browser support
