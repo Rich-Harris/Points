@@ -28,8 +28,8 @@ What's wrong with the existing polyfills?
 
 There's already a few (or more? let me know!) pointer events polyfills out there:
 
-* [Hand.js][3] - the closest thing to an '[official][4]' polyfill
-* [toolkitchen/PointerEvents][5]
+* [polymer/PointerEvents][5]
+* [Hand.js][3]
 * [Pointer.js][6]
 
 However as far as I can tell, they don't quite adhere to the spec, especially with touch devices. (Currently, neither does this one, but in different ways - see next section!). Hand.js double-fires events because it 'translates' both touch events **and** the compatibility mouse events that mobile browsers fire *after* those touch events, and the other two don't fire `pointerenter` and `pointerleave` events.
@@ -81,12 +81,12 @@ This introduces a couple of problems for polyfillers. Firstly, invalid CSS prope
 * Stylesheets are added after `DOMContentLoaded`
 * The DOM changes in certain ways (e.g. toggling between active and inactive in the following case: `canvas.active { touch-action: none; } canvas.inactive { touch-action: auto }`)
 
-Toolkitchen's polyfill acknowledges these difficulties and proposes an alternative, namely adding a `touch-action="none"` attribute to nodes that should receive pointer events and using mutation observers where possible to keep track of changes. This is a smart idea, but I'm not sure I like adding a non-standard property to compensate for the lack of a standard property.
+Polymer's polyfill acknowledges these difficulties and proposes an alternative, namely adding a `touch-action="none"` attribute to nodes that should receive pointer events and using mutation observers where possible to keep track of changes. This is a smart idea, but I'm not sure I like adding a non-standard property to compensate for the lack of a standard property.
 
 Furthermore there is some ambiguity in how `touch-action` is interpreted:
 
 * Hand.js fires pointer events whether `touch-action` is `auto` or `none` (it ignores `pan-x` and `pan-y`), but prevents the default event in the `none` case
-* Toolkitchen does **not** fire events when `touch-action` is `auto`, otherwise it fires events and prevents event defaults. It respects the `pan-x` and `pan-y` values. This is potentially problematic since you may want to respond to the user tapping on elements *without* preventing panning/zooming when the user initially touches that element then subsequently drags their finger.
+* Polymer does **not** fire events when `touch-action` is `auto`, otherwise it fires events and prevents event defaults. It respects the `pan-x` and `pan-y` values. This is potentially problematic since you may want to respond to the user tapping on elements *without* preventing panning/zooming when the user initially touches that element then subsequently drags their finger.
 * Pointer.js disregards `touch-action` altogether.
 
 None of these solutions accurately reflect the specification, which (if I'm reading it correctly - it's not the clearest piece of English ever written!) allows user agents to initially dispatch pointer events regardless of `touch-action` but then stop dispatching pointer events (after dispatching a `pointercancel` event) *if the user agent determines it should execute a default behaviour*. Unfortunately, we have no good way of determining whether a default behaviour has been initiated.
@@ -132,7 +132,7 @@ Copyright 2013 Rich Harris. Released under the MIT License.
 [2]: https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html
 [3]: http://handjs.codeplex.com/
 [4]: http://blogs.msdn.com/b/eternalcoding/archive/2013/01/16/hand-js-a-polyfill-for-supporting-pointer-events-on-every-browser.aspx
-[5]: https://github.com/toolkitchen/PointerEvents
+[5]: https://github.com/polymer/PointerEvents
 [6]: https://github.com/borismus/pointer.js
 [7]: https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html#pointerevent-interface
 [8]: https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html#the-touch-action-css-property
