@@ -55,9 +55,15 @@ This polyfill works slightly differently to the others - whereas they generally 
 
 In the case of touch events the intended target may not be the same as the *touch target*, because the target of a touch is whatever was under the finger when you first put it on the screen, not what's under it now, which is at odds with the pointer events spec. The only way to discover the intended target is with `document.elementFromPoint( touch.clientX, touch.clientY )`, so that's what we do.
 
-This approach allows us to adhere to the spec more closely than polyfills that use the interception approach. There is a theoretical performance implication that you should be aware of - generating fake events and using `document.elementFromPoint` is not free.
+This approach allows us to adhere to the spec more closely than polyfills that use the interception approach. There is a theoretical performance implication that you should be aware of - generating fake events and using `document.elementFromPoint` is not free, though in practice the impact is negligible.
 
-In practice, however, the impact is negligible.
+However there is another performance consideration. Ordinarily, on touch devices, the document will begin to scroll as soon as your finger drags the surface - this happens on a separate thread to the main JavaScript thread, which makes it snappy and responsive even if a lot of stuff is going on.
+
+Unless, that is, the element under your finger (or one of its ancestors) has one or more touch event handlers bound to it, in which case the browser cannot begin scrolling until it has determined whether any of those handlers call `preventDefault()` on the event.
+
+With Points.js, because `window` (ancestor to all elements, as far as the event model is concerned) has touch event handlers bound, the browser cannot implement scrolling on a separate thread. The upshot is that **if there are scrollable areas in your app, scrolling performance will be affected**, depending on how much work the main JavaScript thread has to do.
+
+Rick Byers has a [more detailed explanation here](https://plus.google.com/u/1/115788095648461403871/posts/cmzrtyBYPQc).
 
 
 The touch-action CSS property
