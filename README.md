@@ -122,6 +122,12 @@ Contact
 I'm [@rich_harris](http://twitter.com/rich_harris).
 
 
+Changelog
+---------
+
+[is here](CHANGELOG.md).
+
+
 License
 -------
 
