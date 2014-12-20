@@ -28,15 +28,10 @@ What's wrong with the existing polyfills?
 
 There's already a few (or more? let me know!) pointer events polyfills out there:
 
-* [polymer/PointerEvents][5]
+* [jquery/PointerEvents][5]
 * [Hand.js][3]
-* [Pointer.js][6]
 
-However as far as I can tell, they don't quite adhere to the spec, especially with touch devices. (Currently, neither does this one, but in different ways - see next section!). Hand.js double-fires events because it 'translates' both touch events **and** the compatibility mouse events that mobile browsers fire *after* those touch events, and the other two don't fire `pointerenter` and `pointerleave` events.
-
-All three fail to fire `pointermove` events on an element (or `pointerover/out/enter/leave` events) in a touch context if the initial `pointerdown` occurred outside that element.
-
-This isn't to disparage these polyfills - merely to explain why I've bothered to create a new one. There are almost certainly things that they've got right and I've got wrong. Hopefully, between us, we can get it completely right.
+Both have more recient updates, & should be tested before deciding which is best for your project.
 
 
 Limitations
@@ -138,7 +133,7 @@ Copyright 2013 Rich Harris. Released under the MIT License.
 [2]: https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html
 [3]: http://handjs.codeplex.com/
 [4]: http://blogs.msdn.com/b/eternalcoding/archive/2013/01/16/hand-js-a-polyfill-for-supporting-pointer-events-on-every-browser.aspx
-[5]: https://github.com/polymer/PointerEvents
+[5]: https://github.com/jquery/PointerEvents
 [6]: https://github.com/borismus/pointer.js
 [7]: https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html#pointerevent-interface
 [8]: https://dvcs.w3.org/hg/pointerevents/raw-file/tip/pointerEvents.html#the-touch-action-css-property
