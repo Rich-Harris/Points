@@ -128,6 +128,12 @@ Changelog
 [is here](CHANGELOG.md).
 
 
+Projects Using Points
+---------------------
+
+https://github.com/benhutchison/gesture
+
+
 License
 -------
 
