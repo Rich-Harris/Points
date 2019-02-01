@@ -31,7 +31,7 @@
 		return;
 	}
 
-	pointerEventProperties = 'screenX screenY clientX clientY ctrlKey shiftKey altKey metaKey relatedTarget detail button buttons pointerId pointerType width height pressure tiltX tiltY isPrimary'.split( ' ' );
+	pointerEventProperties = 'screenX screenY clientX clientY pageX pageY ctrlKey shiftKey altKey metaKey relatedTarget detail button buttons pointerId pointerType width height pressure tiltX tiltY isPrimary'.split( ' ' );
 
 	// Can we create events using the MouseEvent constructor? If so, gravy
 	try {
@@ -162,6 +162,8 @@
 			screenY:       originalEvent.screenY,
 			clientX:       originalEvent.clientX,
 			clientY:       originalEvent.clientY,
+			pageX:       originalEvent.pageX,
+			pageY:       originalEvent.pageY,
 			ctrlKey:       originalEvent.ctrlKey,
 			shiftKey:      originalEvent.shiftKey,
 			altKey:        originalEvent.altKey,
@@ -269,6 +271,8 @@
 				screenY:       originalEvent.screenY,
 				clientX:       touch.clientX,
 				clientY:       touch.clientY,
+				pageX:         originalEvent.pageX,
+				pageY:         originalEvent.pageY,
 				ctrlKey:       originalEvent.ctrlKey,
 				shiftKey:      originalEvent.shiftKey,
 				altKey:        originalEvent.altKey,
